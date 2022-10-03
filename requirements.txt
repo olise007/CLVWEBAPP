@@ -1,0 +1,9 @@
+btyd
+numpy
+pandas
+scikit_learn
+seaborn
+streamlit
+mysql-connector-python
+schedule
+lifetimes

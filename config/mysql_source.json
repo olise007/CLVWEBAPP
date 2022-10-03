@@ -1,0 +1,8 @@
+{
+    "host": "localhost",
+    "port": "3306",
+    "database": "retailsalesdata",
+    "user": "root",
+    "password": "",
+    "table": "customer_segmentation"
+}

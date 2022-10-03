@@ -1,0 +1,7 @@
+{
+    "CustomerID": "CustomerID",
+    "UnitPrice": "UnitPrice",
+    "Quantity": "Quantity",
+    "InvoiceDate": "InvoiceDate",
+    "InvoiceNo": "InvoiceNo"
+}
