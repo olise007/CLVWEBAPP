@@ -159,7 +159,8 @@ class clvcalculator:
     def remove_transact_table(self):
         cursor = self.sqlite_conn.cursor()
         cursor.execute('''DROP TABLE IF EXISTS transactions''')
-        self.sqlite_conn.commit()  
+        self.sqlite_conn.commit()
+          
 
     def load_clean_transactions(self, breaktrans=True):
         cursor = self.sqlite_conn.cursor()

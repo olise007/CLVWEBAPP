@@ -7,3 +7,6 @@ streamlit
 mysql-connector-python
 schedule
 lifetimes
+boto3
+pandas
+s3fs
