@@ -48,7 +48,7 @@ if check_trans_data:
         st.write('Show a customers history of being alive')
         custID = st.selectbox(label="Select CustomerID", options=dash_contents['df_customers'], index=0)
     with col2:    
-        fig_hist=clvcalc.hist_of_alive(custID)
+        fig_hist=clvcalc.hist_of_alive(custID=custID)
         st.pyplot(fig_hist)
         st.caption('Customer , '+ str(custID) +',: probability of being alive over time')
 

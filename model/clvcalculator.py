@@ -374,17 +374,18 @@ class clvcalculator:
     def hist_of_alive(self, custID=None):
         trains = self.load_model_trainer()
         bgf = trains['data_train']
-        df1 = self.load_trans_data(custID=custID)
+        df1 = self.load_trans_data()
         df1["InvoiceDate"] = pd.to_datetime(df1["InvoiceDate"]) #normalize()
         max_date = df1["InvoiceDate"].max()
         min_date = df1["InvoiceDate"].min()
         span_days = (max_date - min_date).days
         # history of the selected customer: probability over time of being alive
+        df1C = df1[df1["CustomerID"] == custID]
         fig = plt.figure(figsize=(20,4))
         plot_history_alive(
                             model = bgf, 
                             t = span_days, 
-                            transactions = df1, 
+                            transactions = df1C, 
                             datetime_col = "InvoiceDate");
         return fig
 

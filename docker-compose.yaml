@@ -4,7 +4,7 @@ services:
         container_name: mydb
         image: mysql:5.7
         ports:
-            - "32001:3306"
+            - "3306:3306"
         environment:
             MYSQL_ROOT_PASSWORD: root
     app:
@@ -13,4 +13,4 @@ services:
             - "db"
         build: ./
         ports:
-            - "8501:8501"
+            - "80:8501"
