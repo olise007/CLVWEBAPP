@@ -40,7 +40,7 @@ class clvcalculator:
 
     def __init__(self):
         self.sqlite_db = 'clvsummary.db'
-        self.training_file = 'trainingdata/clvfit.pkl'
+        self.training_file = 'datastore/clvfit.pkl'
         self.pull_limit = 100000
         #Set MySQL server connection details
         with open('./config/mysql_source.json', 'r') as sourceinfo:
