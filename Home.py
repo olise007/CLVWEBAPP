@@ -33,10 +33,10 @@ At the point you can navigate to the dashboard to begin exploring the charts and
 To perform calculations on data stored in CSV or other flat file formats, it is required that the data is first loaded into the internal database bundled with this app.
 Use the following connection parameters to login remotely, create a database and table and transfers data that the app is required to process;
 
- - Database host:- mydb (Use host DNS name of the Web App when connecting to this internal server remotely)
+ - Database host:- localhost (Use host DNS name of the Web App when connecting to this internal server remotely)
  - Database port:- 3306
- - Database username:- root
- - Database password:- root
+ - Database username:- clvwebapp
+ - Database password:- clvwebapp
  - Database name:- user specified (created by user when connected from a remote source or users local machine)
  - Source Data Table Name: - user specified
 
