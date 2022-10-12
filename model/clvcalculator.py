@@ -285,8 +285,9 @@ class clvcalculator:
     def refresh_model_data(self):
         self.load_clean_transactions()
         self.load_model_trainer(reset=True)
+        self.get_clv_summary(storesummary=True)
 
-    def get_clv_summary(self, custID=None):
+    def get_clv_summary(self, custID=None, storesummary=False):
         trains = self.load_model_trainer()
         df_rft = trains['rfm_data']
         bgf = trains['data_train']
@@ -319,13 +320,14 @@ class clvcalculator:
         _ = [predict_val(df_rft_C, t) for t in t_FC]
 
         #Store CLV Summary for Future Use
-        cursor = self.sqlite_conn.cursor()
-        cursor.execute('''DROP TABLE IF EXISTS clvsummary''')
-        self.sqlite_conn.commit()
-        try:
-            df_rft_C.to_sql('clvsummary', self.sqlite_conn, if_exists='fail', index = False)
-        except:
-            pass
+        if(storesummary == True):
+            cursor = self.sqlite_conn.cursor()
+            cursor.execute('''DROP TABLE IF EXISTS clvsummary''')
+            self.sqlite_conn.commit()
+            try:
+                df_rft_C.to_sql('clvsummary', self.sqlite_conn, if_exists='fail', index = False)
+            except:
+                pass
 
         return df_rft_C
     
