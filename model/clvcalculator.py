@@ -319,6 +319,9 @@ class clvcalculator:
         _ = [predict_purch(df_rft_C, t) for t in t_FC]
         _ = [predict_val(df_rft_C, t) for t in t_FC]
 
+        #predict clv in the next 12 months
+        #df_rft_C['predict_clv'] = ggf
+
         #Store CLV Summary for Future Use
         if(storesummary == True):
             cursor = self.sqlite_conn.cursor()
@@ -365,6 +368,13 @@ class clvcalculator:
 
         return fig
 
+    def get_no_one_time_buyers(self):
+        trains = self.load_model_trainer()
+        df_ch = trains['rfm_data']
+        one_time_buyers = round(sum(df_ch["frequency"] == 0)/float(len(df_ch))*(100), 2)
+        return one_time_buyers
+
+
     def show_beta_gamma_dist(self, chart_type=None):
         trains = self.load_model_trainer()
         bgf = trains['data_train']
@@ -399,9 +409,10 @@ class clvcalculator:
         FROM clvsummary
         '''
         rfmdata = pd.read_sql_query(sql, conn)
+        data = rfmdata["predict_val_" + str(days)].copy()
 
         fig, ax = plt.subplots(figsize = (12, 7))
-        ax = sns.histplot(rfmdata["predict_val_" + str(days)], 
+        ax = sns.histplot(data, 
                         kde=False, 
                         binwidth = 2)
         ax.set_title(f'Customer value histogram')

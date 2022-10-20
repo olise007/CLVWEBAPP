@@ -10,3 +10,4 @@ lifetimes
 boto3
 pandas
 s3fs
+streamlit-aggrid
