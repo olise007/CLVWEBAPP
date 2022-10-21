@@ -21,7 +21,7 @@ image_dir = './images/'
  
 
 col1 = st.columns(1)
-logo1 = Image.open(image_dir + 'cp1.jpeg')
+logo1 = Image.open(image_dir + 'clvimage.jpg')
 logo1 =logo1.resize ((3000,1500))
 st.image(logo1)
 st.markdown(" # ***'Staying updated with customer details with the help of CLV app....'*** ")
